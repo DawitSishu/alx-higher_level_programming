@@ -1,0 +1,7 @@
+#!/bin/bash
+python -m py_compile "$PYFILE"
+compiled_file="${PYFILE}c"
+if [ -e "__pycache__/${compiled_file}" ]; then
+  mv "__pycache__/${compiled_file}" .
+fi
+chmod +x $PYFILE'c'
