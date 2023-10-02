@@ -1,7 +1,5 @@
 #!/bin/bash
-python -m py_compile "$PYFILE"
-compiled_file="${PYFILE}c"
-if [ -e "__pycache__/${compiled_file}" ]; then
-  mv "__pycache__/${compiled_file}" .
-fi
+python3 -m py_compile $PYFILE
+mv __pycache__/*.pyc ./$PYFILE'c'
 chmod +x $PYFILE'c'
+rmdir __pycache__
