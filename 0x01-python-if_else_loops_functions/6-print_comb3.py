@@ -1,7 +1,11 @@
 #!/usr/bin/python3
-for i in range(10):
-    for j in range(i+1, 10):
-        if i == 8:
-            print(f"{i}{j}")
-            break
-        print(f"{i}{j}, ", end="")
+separator = ", "
+for i in range(0, 100):
+    number_1 = i % 10
+    number_2 = i / 10
+    if i < 10 and number_2 < number_1:
+        print("{}{}".format(0, i), end=separator)
+    elif number_2 < number_1:
+        if i == 89:
+            separator = "\n"
+        print(i, end=separator)
