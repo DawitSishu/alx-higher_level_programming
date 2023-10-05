@@ -11,7 +11,7 @@ if __name__ == "__main__":
         print(".")
     else:
         print(":")
-    if totalArgs > 1:
+    if totalArgs > 0:
         for arg in sys.argv:
             if idx > 0:
                 print("{}: {}".format(idx, arg))
