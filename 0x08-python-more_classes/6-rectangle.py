@@ -8,6 +8,7 @@ class Rectangle():
     """
     rectangle class
     """
+
     num = 0
 
     def __init__(self, width=0, height=0):
@@ -25,7 +26,7 @@ class Rectangle():
         rec = ""
 
         if self.__width > 0 and self.__height > 0:
-            for y in range(self.__height):
+            for i in range(self.__height):
                 rec += '#' * self.__width + '\n'
 
         return rec[:-1]
