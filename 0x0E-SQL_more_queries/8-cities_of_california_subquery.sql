@@ -1,5 +1,8 @@
 -- lists all available databases
-SELECT cities.*
-FROM cities
-WHERE state_id = @california_state_id
-ORDER BY cities.id ASC;
+SELECT `id`, `name`
+  FROM `cities`
+ WHERE `state_id` IN
+       (SELECT `id`
+	  FROM `states`
+	 WHERE `name` = "California")
+ ORDER BY `id`;
