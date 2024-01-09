@@ -1,14 +1,14 @@
 #!/usr/bin/node
 
-const square = require("./5-square");
+const square = require('./5-square');
 
 class Square extends square {
-  constructor(size) {
+  constructor (size) {
     super(size, size);
   }
 
-  charPrint(c) {
-    const char = c || "X";
+  charPrint (c) {
+    const char = c || 'X';
     for (let i = 0; i < this.height; i++) {
       console.log(char.repeat(this.width));
     }
