@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-filter list form db
+print db from state
 """
 
 import sqlalchemy
@@ -15,12 +15,13 @@ if __name__ == "__main__":
                                                                     argv[3]))
 
     Base.metadata.create_all(eng)
-
     Session = sessionmaker(bind=eng)
     session = Session()
-    s = '%a%'
 
-    rows = session.query(State).filter(State.name.like(s)).order_by(State.id)
-    for state in rows:
-        print("{}: {}".format(state.id, state.name))
+    ss = session.query(State).filter_by(name=argv[4]).first()
+    if ss is not None:
+        print(str(ss.id))
+    else:
+        print("Not found")
+
     session.close()
