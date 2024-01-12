@@ -13,9 +13,9 @@ if __name__ == "__main__":
 
     # defalt port - 3306
     db = MySQLdb.connect(user=usr, passwd=pas, db=nme)
-    curs = db.cursor()
+    cur = db.cursor()
 
-    curs.execute("SELECT c.id, c.name, s.name \
+    cur.execute("SELECT c.id, c.name, s.name \
                  FROM cities c INNER JOIN states s \
                  ON c.state_id = s.id \
                  ORDER BY c.id")

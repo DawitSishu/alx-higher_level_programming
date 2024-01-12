@@ -13,9 +13,9 @@ if __name__ == "__main__":
 
     # defalt port - 3306
     db = MySQLdb.connect(user=usr, passwd=pas, db=nme)
-    curs = db.cursor()
+    cur = db.cursor()
 
-    curs.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id")
+    cur.execute("SELECT * FROM states WHERE name LIKE BINARY 'N%' ORDER BY id")
     rows = cur.fetchall()
 
     for row in rows:
