@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-filter states by n
+all cities
 """
 
 import sys
@@ -17,8 +17,11 @@ if __name__ == "__main__":
     db = MySQLdb.connect(user=usr, passwd=pas, db=nme)
     curs = db.cursor()
 
-    curs.execute("SELECT * FROM states WHERE name LIKE BINARY '{}' ORDER BY id"
-                .format(search))
+    curs.execute("SELECT c.name \
+                 FROM cities c INNER JOIN states s \
+                 ON c.state_id = s.id WHERE s.name = %s\
+                 ORDER BY c.id", (search, ))
+
     rows = cur.fetchall()
 
     for row in rows:

@@ -13,9 +13,9 @@ if __name__ == "__main__":
 
     # defalt port - 3306
     db = MySQLdb.connect(user=usr, passwd=pas, db=nme)
-    cur = db.cursor()
+    curs = db.cursor()
 
-    cur.execute("SELECT * FROM states ORDER BY id")
+    curs.execute("SELECT * FROM states ORDER BY id")
     rows = cur.fetchall()
 
     for row in rows:
