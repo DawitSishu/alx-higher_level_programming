@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-state creatoer
+cities list
 """
 
 import sys
@@ -14,18 +14,19 @@ from relationship_city import City
 if __name__ == "__main__":
     usr = sys.argv[1]
     pas = sys.argv[2]
-    dn = sys.argv[3]
+    dname = sys.argv[3]
 
     url = {'drivername': 'mysql+mysqldb', 'host': 'localhost',
-           'username': usr, 'password': pas, 'database': dn}
+           'username': usr, 'password': pas, 'database': dname}
 
     engine = create_engine(URL(**url), pool_pre_ping=True)
     Base.metadata.create_all(engine)
 
     session = Session(bind=engine)
 
-    newState = State(name="California")
-    newState.cities.append(City(name="San Francisco"))
+    states = session.query(State)
 
-    session.add(newState)
-    session.commit()
+    for st in states:
+        print("{}: {}".format(st.id, st.name))
+        for city in st.cities:
+            print("\t{}: {}".format(city.id, city.name))
