@@ -16,9 +16,9 @@ if __name__ == '__main__':
                            .format(nm, password, dn))
 
     Session = sessionmaker(bind=engine)
-    session = Session()
+    ses = Session()
 
-    session.query(State).filter(State.name.like('%a%')).\
+    ses.query(State).filter(State.name.like('%a%')).\
         delete(synchronize_session=False)
 
-    session.commit()
+    ses.commit()
